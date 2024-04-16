@@ -1,6 +1,12 @@
 # USTP Student Information System
 
 ---------------------------------------------------
+**Flowchart**
+You can access the flowchart through this link:
+
+https://lucid.app/lucidchart/cdc3c188-ac4c-47f9-a381-3632e41f4f14/edit?viewport_loc=-567%2C-622%2C2631%2C1770%2C0_0&invitationId=inv_8d79eed1-02b5-4a45-a729-d0a2a45b612d
+
+---------------------------------------------------
 **USTP Student Information System Description:**
 
 This repository contains a simple Student Information System implemented using Python's Tkinter library for the GUI and MySQL for the database. It allows users to input their personal information such as first name, last name, course, year level, student ID, and phone number, and save it to a MySQL database.
