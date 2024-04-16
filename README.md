@@ -29,3 +29,37 @@ The program allows users to display all information saved in the database.
 4. Click on the "Save Information" button to save the data.
 5. To display all information saved in the database, click on the "Display All Information" button.
 
+---------------------------------------------------
+# Python code for the main application (main.py)
+```
+import tkinter as tk
+from tkinter import ttk, messagebox
+import mysql.connector
+
+#Your Python code goes here
+```
+---------------------------------------------------
+# MySQL database schema
+```
+CREATE DATABASE IF NOT EXISTS student_management;
+USE student_management;
+
+CREATE TABLE IF NOT EXISTS students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    First_Name VARCHAR(255) NOT NULL,
+    Last_Name VARCHAR(255) NOT NULL,
+    Course VARCHAR(255) NOT NULL,
+    Year_Level VARCHAR(255) NOT NULL,
+    StudentID VARCHAR(255) NOT NULL,
+```
+---------------------------------------------------
+# Notes:
+
+- Make sure to replace ```your-username``` with your actual GitHub/SQL username.
+- Modify the MySQL connection parameters in main.py to match your MySQL setup.
+- This README assumes basic familiarity with Git, Python, Tkinter, and MySQL.
+- Before running the application, ensure that your MySQL server is running and accessible.
+- Screenshots of the application can be added to the repository's "screenshots" directory.
+- Contributions to improve the system are highly encouraged and appreciated.
+- This project is provided under the MIT License, granting open-source usage with proper attribution.
+- Special thanks to the developers of Tkinter and MySQL Connector/Python for their excellent documentation.
