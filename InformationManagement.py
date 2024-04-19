@@ -158,8 +158,8 @@ def searchDatabase(selected_criteria, keyword, tree, TABLE_NAME):
 
     try:
         sql = f"SELECT * FROM {TABLE_NAME} WHERE "
-        if selected_criteria == "Year_Level" or selected_criteria == "Student ID":
-            sql += f"`{selected_criteria}` = %s"
+        if selected_criteria == "Year Level" or selected_criteria == "Student ID":
+            sql += f"`{selected_criteria.replace(' ', '_')}` = %s"
             cursor.execute(sql, (keyword,))
         else:
             sql += f"`{selected_criteria.replace(' ', '_')}` LIKE %s"
@@ -171,6 +171,7 @@ def searchDatabase(selected_criteria, keyword, tree, TABLE_NAME):
             i += 1
     except mysql.connector.Error as e:
         messagebox.showerror("Error", f"Error occurred: {str(e)}")
+
 
 
 # Connect to MySQL database
