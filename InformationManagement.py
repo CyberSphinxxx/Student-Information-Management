@@ -24,7 +24,7 @@ def displayResults(root, cursor, TABLE_NAME):
         keyword = searchKeyword.get()
 
         if selected_criteria and keyword:
-            searchDatabase(selected_criteria, keyword, tree)
+            searchDatabase(selected_criteria, keyword, tree, TABLE_NAME)  # Pass TABLE_NAME argument here
         else:
             messagebox.showwarning("Warning", "Please select a search criteria and enter a keyword.")
 
@@ -152,24 +152,26 @@ def authenticate(username, password, loginWindow, root, cursor, TABLE_NAME):
     else:
         messagebox.showerror("Error", "Invalid username or password")
 
-def searchDatabase(selected_criteria, keyword, tree):
+def searchDatabase(selected_criteria, keyword, tree, TABLE_NAME):
     for row in tree.get_children():
         tree.delete(row)
 
     try:
         sql = f"SELECT * FROM {TABLE_NAME} WHERE "
-        if selected_criteria == "Year Level" or selected_criteria == "Student ID":
-            sql += f"`{selected_criteria}` = '{keyword}'"
+        if selected_criteria == "Year_Level" or selected_criteria == "Student ID":
+            sql += f"`{selected_criteria}` = %s"
+            cursor.execute(sql, (keyword,))
         else:
-            sql += f"`{selected_criteria.replace(' ', '_')}` LIKE '%{keyword}%'"
+            sql += f"`{selected_criteria.replace(' ', '_')}` LIKE %s"
+            cursor.execute(sql, ('%' + keyword + '%',))
 
-        cursor.execute(sql)
         i = 0
         for row in cursor.fetchall():
             tree.insert('', i, text="Student " + str(row[0]), values=(row[1], row[2], row[3], row[4], row[5], row[6]))
             i += 1
     except mysql.connector.Error as e:
         messagebox.showerror("Error", f"Error occurred: {str(e)}")
+
 
 # Connect to MySQL database
 try:
