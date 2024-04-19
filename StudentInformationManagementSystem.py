@@ -29,7 +29,7 @@ def displayResults(root, cursor, TABLE_NAME):
             messagebox.showwarning("Warning", "Please select a search criteria and enter a keyword.")
 
     secondWindow = tk.Toplevel(root)
-    secondWindow.title("Display Results")
+    secondWindow.title("Display Results / Admin Panel") #To be changed
 
     appLabel = tk.Label(secondWindow, text="USTP Student Management System", fg="#06a099")
     appLabel.config(font=("Arial", 24, "bold"))
@@ -117,7 +117,8 @@ def createMainWindow(cursor, TABLE_NAME):
     button = tk.Button(root, text="Save Information", font=("Arial", 12), command=lambda: takeNameInput(*entries))
     button.grid(row=len(labels) + 1, column=0, columnspan=2, pady=30)
 
-    displayButton = tk.Button(root, text="Display All Information", font=("Arial", 12), command=lambda: loginWindow(root, cursor, TABLE_NAME))
+    #
+    displayButton = tk.Button(root, text="Admin Panel", font=("Arial", 12), command=lambda: loginWindow(root, cursor, TABLE_NAME))
     displayButton.grid(row=len(labels) + 2, column=0, columnspan=2, pady=10)
 
     for i in range(len(labels) + 3):
@@ -130,7 +131,7 @@ def createMainWindow(cursor, TABLE_NAME):
 
 def loginWindow(root, cursor, TABLE_NAME):
     loginWindow = tk.Toplevel(root)
-    loginWindow.title("Login")
+    loginWindow.title("Admin Login")
 
     usernameLabel = tk.Label(loginWindow, text="Username:", font=("Arial", 12))
     usernameLabel.grid(row=0, column=0, padx=5, pady=5)
@@ -146,11 +147,11 @@ def loginWindow(root, cursor, TABLE_NAME):
     loginButton.grid(row=2, columnspan=2, padx=5, pady=5)
 
 def authenticate(username, password, loginWindow, root, cursor, TABLE_NAME):
-    if username == "admin" and password == "admin123":
+    if username == "admin" and password == "admin":
         loginWindow.destroy()
         displayResults(root, cursor, TABLE_NAME)
     else:
-        messagebox.showerror("Error", "Invalid username or password")
+        messagebox.showerror("Error!", "Invalid username or password")
 
 def searchDatabase(selected_criteria, keyword, tree, TABLE_NAME):
     for row in tree.get_children():
