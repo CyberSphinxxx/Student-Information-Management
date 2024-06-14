@@ -71,8 +71,7 @@ CREATE TABLE IF NOT EXISTS students (
 - Make sure to replace ```your-username``` with your actual GitHub/SQL username.
 - Modify the MySQL connection parameters in main.py to match your MySQL setup.
 - This README assumes basic familiarity with Git, Python, Tkinter, and MySQL.
-- Before running the application, ensure that your MySQL server is running and accessible.
-- Screenshots of the application can be added to the repository's "screenshots" directory.
+- Before running the application, ensure that your **MySQL server** is running and accessible.
 - Contributions to improve the system are highly encouraged and appreciated.
 - This project is provided under the MIT License, granting open-source usage with proper attribution.
 - Special thanks to the developers of Tkinter and MySQL Connector/Python for their excellent documentation.
