@@ -176,11 +176,12 @@ def searchDatabase(selected_criteria, keyword, tree, TABLE_NAME):
 
 
 # Connect to MySQL database
+# Make sure this is identical to your mysql database
 try:
     connection = mysql.connector.connect(
         host="localhost",
         user="root",
-        password="HelloWorld0429!",
+        password="HelloWorld0429!", #SET YOUR OWN PASSWORD
         database="student_management"
     )
 
