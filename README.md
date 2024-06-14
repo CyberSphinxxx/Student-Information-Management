@@ -1,4 +1,5 @@
 # USTP Student Information System
+```Created By: John Lemar L. Gonzales, BSIT1-R10```
 
 ---------------------------------------------------
 **Flowchart**
