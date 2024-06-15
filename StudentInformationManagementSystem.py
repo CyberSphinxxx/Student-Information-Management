@@ -181,7 +181,7 @@ try:
     connection = mysql.connector.connect(
         host="localhost",
         user="root",
-        password="HelloWorld0429!", #SET YOUR OWN PASSWORD
+        password="admin123", #SET YOUR OWN PASSWORD
         database="student_management"
     )
 
