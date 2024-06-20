@@ -49,7 +49,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 import mysql.connector
 
-#Your Python code goes here
+#The Python code goes here
 ```
 ---------------------------------------------------
 # MySQL database schema
